@@ -4,7 +4,7 @@ from time import sleep
 import urllib
 import urllib2
 
-SECONDS_BETWEEN_BELLS = 1
+SECONDS_BETWEEN_BELLS = 20
 
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(7, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
