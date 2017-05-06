@@ -26,11 +26,10 @@ def button_pressed(channel):
     if (datetime.datetime.now() - last_press).total_seconds() < SECONDS_BETWEEN_BELLS:
         return
     logging.info('Seems that button is pressed')
-    if check_pin_n_times(DOOR_BELL_PIN, 3, 0.001):
+    if check_pin_n_times(DOOR_BELL_PIN, 1, 0.001):
         logging.info('Button is really pressed')
         last_press = datetime.datetime.now()
-        data = ''
-        req = urllib2.Request('https://hooks.zapier.com/hooks/catch/994827/2tgm4j//?type=dong', data)
+        req = urllib2.Request('https://api.telegram.org/bot192506478:AAEPkJLfFmwNrI82rdzJBdh4fiPju08OoIo/sendMessage?chat_id=-182269013&text=The doorbell has rung. Come open the door!')
         response = urllib2.urlopen(req)
         the_page = response.read()
     else:
